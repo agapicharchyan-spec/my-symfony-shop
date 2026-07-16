@@ -1,0 +1,8 @@
+{{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+    <div class="my-3">
+        {{ form_widget(form) }}
+    </div>
+    <button class="btn btn-success mt-3">
+        <i class="bi bi-save"></i> {{ button_label|default('Save Product') }}
+    </button>
+{{ form_end(form) }}
