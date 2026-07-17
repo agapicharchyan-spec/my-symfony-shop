@@ -1,6 +1,6 @@
-FROM php:8.3-apache
+FROM php:8.4-apache
 
-# Տեղադրում ենք բազայի ընդլայնումները
+# Տեղադրում ենք բազային ընդլայնումները
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     libicu-dev \
@@ -13,7 +13,7 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 RUN a2enmod rewrite
 
-# Պատճենում ենք ամբողջ նախագիծը (արդեն ներառյալ vendor-ը)
+# Պատճենում ենք ամբողջ նախագիծը (ներառյալ vendor-ը)
 COPY . /var/www/html/
 
 RUN chown -R www-data:www-data /var/www/html
